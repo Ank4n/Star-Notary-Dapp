@@ -7,6 +7,15 @@ body {
     width: 50%;
     margin: 0 auto;
 }
+.heading {
+    text-align: center;
+}
+.section {
+    margin: 60px 0 20px 0;
+}
+.subsection {
+    margin: 10px 0 30px 0;
+}
 .bold { 
     font-weight: bolder;
 }
@@ -17,4 +26,15 @@ button {
     margin: 2em 0;
     padding: 1em 4em;
     display:block;
+}
+#story_edit {
+    height:200px;
+    width: 100%;
+}
+.editbox{
+    width: 100%;
+}
+.submit{
+    margin: 10px 0 0 0;
+    width: 100%;
 }
