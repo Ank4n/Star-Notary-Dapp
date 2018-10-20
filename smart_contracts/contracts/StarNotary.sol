@@ -15,7 +15,7 @@ contract StarNotary is ERC721 {
     mapping(uint256 => Star) public tokenIdToStarInfo;
     mapping(uint256 => uint256) public starsForSale;
     mapping(bytes32 => uint256) internal coordinateToTokenId;
-    uint256 counter;
+    uint256 public counter;
 
     function createStar(string _name, string _star_story, string _ra, string _dec, string _mag) public {
         bytes32 coordinateHash = hash(_ra, _dec, _mag);
@@ -60,6 +60,7 @@ contract StarNotary is ERC721 {
     function mint(address to, uint256 tokenId) public {
         _mint(to, tokenId);
     }
+
     function concat(string a, string b) private pure returns (string) {
         return string(abi.encodePacked(a, b));
     }
