@@ -18,11 +18,11 @@ contract StarNotary is ERC721 {
     uint256 public counter;
 
     function createStar(string _name, string _star_story, string _ra, string _dec, string _mag) public {
-        bytes32 coordinateHash = hash(_ra, _dec, _mag);
+        bytes32 coordinateHash = _hash(_ra, _dec, _mag);
         require(coordinateToTokenId[coordinateHash] == 0, "Sorry, star with this coordinates already exists");
 
         uint256 tokenId = ++counter;
-        Star memory newStar = Star(_name, _star_story, concat("ra_", _ra), concat("dec_", _dec), concat("mag_", _mag));
+        Star memory newStar = Star(_name, _star_story, _concat("ra_", _ra), _concat("dec_", _dec), _concat("mag_", _mag));
         tokenIdToStarInfo[tokenId] = newStar;
         coordinateToTokenId[coordinateHash] = tokenId;
 
@@ -30,7 +30,7 @@ contract StarNotary is ERC721 {
     }
 
     function putStarUpForSale(uint256 _tokenId, uint256 _price) public {
-        require(this.ownerOf(_tokenId) == msg.sender);
+        require(_isApprovedOrOwner(msg.sender, _tokenId));
 
         starsForSale[_tokenId] = _price;
     }
@@ -53,7 +53,7 @@ contract StarNotary is ERC721 {
     }
 
     function checkIfStarExist(string _ra, string _dec, string _mag) public view returns (bool){
-        bytes32 coordinateHash = hash(_ra, _dec, _mag);
+        bytes32 coordinateHash = _hash(_ra, _dec, _mag);
         return coordinateToTokenId[coordinateHash] != 0;
     }
 
@@ -61,11 +61,11 @@ contract StarNotary is ERC721 {
         _mint(to, tokenId);
     }
 
-    function concat(string a, string b) private pure returns (string) {
+    function _concat(string a, string b) private pure returns (string) {
         return string(abi.encodePacked(a, b));
     }
 
-    function hash(string _ra, string _dec, string _mag) private pure returns (bytes32){
+    function _hash(string _ra, string _dec, string _mag) private pure returns (bytes32){
         return keccak256(abi.encodePacked(_ra, _dec, _mag));
     }
 }
