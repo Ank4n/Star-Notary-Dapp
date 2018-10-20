@@ -1,12 +1,18 @@
 ### Deployed smart contract example
 
-Transaction Hash for **createStar**: 0xf7ecd57de6901122e8970d5adebdf75aefa366fc26520721e3df505d8ad89dc3
-Transaction Hash for **putStarUpForSale**: 0x99de1d275c3bc47c1f02605ca68ac255c1b6d33f128866db1a325f37a4ddad7c
-Star Token Id: 1
-Contract Hash: 0xe903e82ff5609fa98cd22a7efcb46a6c8e0f0e57bd5cd83daab78c18ff77296d
-Contract Address: 0xee8d4f63011bd2b937d7c838754d6b07e85b1032
+**Contract Deploy**
+- Contract Address: 0x89d57bf914815d051d33e64925d6e3cdbdb87458
+- Link: https://rinkeby.etherscan.io/address/0x89d57bf914815d051d33e64925d6e3cdbdb87458
 
-Links:
-Contract Address: https://rinkeby.etherscan.io/address/0xee8d4f63011bd2b937d7c838754d6b07e85b1032
-Create Star Transaction: https://rinkeby.etherscan.io/tx/0xf7ecd57de6901122e8970d5adebdf75aefa366fc26520721e3df505d8ad89dc3
-Put Star up for Sale Transaction: https://rinkeby.etherscan.io/tx/0x99de1d275c3bc47c1f02605ca68ac255c1b6d33f128866db1a325f37a4ddad7c
+**Create Star**
+> contract.createStar("awesome star!", "a star story", "032.155", "121.874", "245.978");
+
+- transactionHash: 0x66ab8611ce70807ce2e2a2517965dca9d66af754de8e44ebeda546ca7e12c0f4
+- token_ID: 1;
+- Link: https://rinkeby.etherscan.io/tx/0x66ab8611ce70807ce2e2a2517965dca9d66af754de8e44ebeda546ca7e12c0f4
+
+**Put Star up for Sale**
+> contract.putStarUpForSale(1, web3.toWei(.01, "ether"));
+
+- transactionHash: 0x5ffdd7d2e45a2aa29d860bafa48985cc0c4f52942f75f43dbc4d9c1abd58b4ab
+- Link: https://rinkeby.etherscan.io/tx/0x5ffdd7d2e45a2aa29d860bafa48985cc0c4f52942f75f43dbc4d9c1abd58b4ab
